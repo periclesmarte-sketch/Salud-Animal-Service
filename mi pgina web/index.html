@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salud Animal Service | Dr. Pericles Marte - Cardiología Veterinaria</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #00766c;
+      --primary-hover: #005a52;
+      --secondary: #132e2b;
+      --accent: #20b2aa;
+      --light-bg: #f0f7f6;
+      --white: #ffffff;
+      --text-dark: #111827;
+      --text-muted: #4b5563;
+      --whatsapp-color: #25d366;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+      --radius: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: var(--light-bg); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); box-shadow: 0 1px 3px rgba(0,0,0,0.08); z-index: 1000; }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+    .logo { display: flex; align-items: center; gap: 0.6rem; font-size: 1.3rem; font-weight: 700; color: var(--secondary); }
+    .logo i { color: var(--primary); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-weight: 500; color: var(--text-muted); transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--primary); }
+    .btn-header { background-color: var(--primary); color: var(--white); padding: 0.6rem 1.3rem; border-radius: 50px; font-weight: 600; transition: background-color 0.2s ease; }
+    .btn-header:hover { background-color: var(--primary-hover); }
+
+    #inicio { padding: 9rem 1.5rem 5rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-badge { display: inline-block; background-color: #d1fae5; color: var(--primary); padding: 0.4rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.875rem; margin-bottom: 1rem; }
+    .hero-text h1 { font-size: 2.75rem; line-height: 1.2; color: var(--secondary); margin-bottom: 1rem; }
+    .hero-text p { font-size: 1.125rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .hero-cta { display: flex; gap: 1rem; }
+    .btn-primary { background-color: var(--primary); color: var(--white); padding: 0.8rem 1.6rem; border-radius: var(--radius); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: var(--shadow); transition: background-color 0.2s ease; }
+    .btn-primary:hover { background-color: var(--primary-hover); }
+    .btn-secondary { background-color: var(--white); color: var(--secondary); border: 1px solid #cbd5e1; padding: 0.8rem 1.6rem; border-radius: var(--radius); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: background-color 0.2s ease; }
+    .btn-secondary:hover { background-color: #e2e8f0; }
+
+    #especialista { background-color: var(--white); padding: 5rem 1.5rem; }
+    .section-container { max-width: 1200px; margin: 0 auto; }
+    .doctor-card { background-color: var(--light-bg); border-radius: var(--radius); padding: 2.5rem; display: grid; grid-template-columns: 280px 1fr; gap: 2.5rem; align-items: center; box-shadow: var(--shadow); border: 1px solid #e0f2fe; }
+    
+    /* Contenedor adaptado para mostrar tu foto */
+    .doctor-avatar { width: 100%; height: 320px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background-color: #ccfbf1; }
+    .doctor-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .doctor-info h2 { font-size: 2rem; color: var(--secondary); margin-bottom: 0.25rem; }
+    .doctor-title { color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 1.25rem; display: block; }
+    .doctor-bio { margin-bottom: 1.5rem; color: var(--text-muted); }
+    .badge-container { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .badge { background-color: var(--white); padding: 0.4rem 0.8rem; border-radius: 50px; font-size: 0.875rem; font-weight: 500; color: var(--secondary); border: 1px solid #cbd5e1; }
+
+    #servicios { padding: 5rem 1.5rem; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 { font-size: 2.25rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .section-header p { color: var(--text-muted); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .service-card { background-color: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid #e2e8f0; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08); }
+    .service-icon { width: 50px; height: 50px; background-color: #ccfbf1; color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+    .service-card h3 { font-size: 1.25rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    #contacto { background-color: var(--white); padding: 5rem 1.5rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .contact-icon { background-color: var(--light-bg); color: var(--primary); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .contact-text h4 { font-size: 1.1rem; color: var(--secondary); }
+    .contact-text p { color: var(--text-muted); }
+    .map-container { width: 100%; height: 350px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+    footer { background-color: var(--secondary); color: #94a3b8; padding: 2rem 1.5rem; text-align: center; font-size: 0.9rem; }
+    .whatsapp-float { position: fixed; bottom: 25px; right: 25px; background-color: var(--whatsapp-color); color: white; width: 60px; height: 60px; border-radius: 50px; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1001; transition: transform 0.2s ease; }
+    .whatsapp-float:hover { transform: scale(1.1); color: white; }
+
+    @media (max-width: 900px) {
+      #inicio, .contact-grid { grid-template-columns: 1fr; }
+      .doctor-card { grid-template-columns: 1fr; text-align: center; }
+      .doctor-avatar { height: 250px; }
+      .badge-container { justify-content: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#inicio" class="logo">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <span>Salud Animal Service</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#especialista">Especialista</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="https://wa.me/18099656776?text=Hola%20Dr.%20Pericles,%20quisiera%20agendar%20una%20consulta" class="btn-header" target="_blank">Agendar Cita</a>
+    </div>
+  </header>
+
+  <section id="inicio">
+    <div class="hero-text">
+      <span class="hero-badge">Atención Especializada</span>
+      <h1>Cardiología Veterinaria en Perros y Gatos</h1>
+      <p>Diagnóstico preciso y cuidado cardiovascular integral para la salud y longevidad de tu compañero.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/18099656776?text=Hola%20Dr.%20Pericles,%20quisiera%20agendar%20una%20consulta" class="btn-primary" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp: 809-965-6776
+        </a>
+        <a href="#servicios" class="btn-secondary">Servicios</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <svg viewBox="0 0 500 400" width="100%" height="auto" style="max-width:400px;">
+        <rect width="100%" height="100%" fill="#ccfbf1" rx="12"/>
+        <path d="M250 130 C200 80, 130 150, 250 270 C370 150, 300 80, 250 130 Z" fill="#00766c" opacity="0.85"/>
+        <path d="M180 200 L220 200 L235 170 L255 230 L270 190 L285 205 L320 205" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section id="especialista">
+    <div class="section-container">
+      <div class="doctor-card">
+        
+        <!-- FOTO DEL DOCTOR -->
+        <div class="doctor-avatar">
+          <img src="foto.jpg" alt="Dr. Pericles Marte">
+        </div>
+
+        <div class="doctor-info">
+          <h2>Dr. Pericles Marte</h2>
+          <span class="doctor-title">Especialista en Cardiología Veterinaria en Perros y Gatos</span>
+          <p class="doctor-bio">
+            Especializado en la evaluación, diagnóstico y tratamiento integral de patologías cardiovasculares en pequeños animales (caninos y felinos), enfocado en brindar una mejor calidad de vida a cada paciente.
+          </p>
+          <div class="badge-container">
+            <span class="badge"><i class="fa-solid fa-check"></i> Ecocardiografía</span>
+            <span class="badge"><i class="fa-solid fa-check"></i> Electrocardiografía</span>
+            <span class="badge"><i class="fa-solid fa-check"></i> Caninos y Felinos</span>
+            <span class="badge"><i class="fa-solid fa-check"></i> Riesgo Quirúrgico</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Servicios Especializados</h2>
+        <p>Monitoreo cardíaco y procedimientos diagnósticos de alta precisión.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-wave-square"></i></div>
+          <h3>Ecocardiografía Doppler</h3>
+          <p>Evaluación ultrasónica detallada de la estructura interna y dinámica del corazón en tiempo real.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h3>Electrocardiograma (ECG)</h3>
+          <p>Análisis de la actividad eléctrica cardíaca para la detección de arritmias y trastornos del ritmo.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-stethoscope"></i></div>
+          <h3>Evaluación Preanestésica</h3>
+          <p>Valoración de riesgo cardiovascular previo a procedimientos quirúrgicos y de anestesia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Contacto y Ubicación</h2>
+        <p>Atención previa cita en Santo Domingo, República Dominicana.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="contact-text">
+              <h4>Teléfono / WhatsApp</h4>
+              <p>809-965-6776</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <div class="contact-text">
+              <h4>Médico a cargo</h4>
+              <p>Dr. Pericles Marte</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-text">
+              <h4>Ubicación</h4>
+              <p>Plaza David, Av. Rómulo Betancourt 419</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60521.23306898877!2d-69.9500!3d18.4800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eef8d80f8373efb%3A0x280e224e75421a!2Santo%20Domingo!5e0!3m2!1ses!2sdo!4v1680000000000!5m2!1ses!2sdo" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Salud Animal Service. Dr. Pericles Marte — Cardiología Veterinaria en Perros y Gatos.</p>
+  </footer>
+
+  <a href="https://wa.me/18099656776?text=Hola%20Dr.%20Pericles,%20quisiera%20agendar%20una%20consulta" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+</body>
+</html>
